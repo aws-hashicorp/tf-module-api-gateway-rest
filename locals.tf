@@ -19,7 +19,7 @@ locals {
       "Effect": "Allow",
       "Principal": "*",
       "Action": "execute-api:Invoke",
-      "Resource": "arn:aws:execute-api:${var.aws_region}:${var.account_id}:${aws_api_gateway_rest_api.api_gateway_rest.id}/${var.environment}/*/*"
+      "Resource": "arn:aws:execute-api:${var.aws_region}:${var.account_id}:${one(aws_api_gateway_rest_api.api_gateway_rest.id)}/${var.environment}/*/*"
     }
   ]
 }
