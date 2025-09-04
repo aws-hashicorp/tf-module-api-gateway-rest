@@ -3,6 +3,11 @@ output "rest_api_execution_arn" {
   value       = aws_api_gateway_rest_api.api_gateway_rest.execution_arn
 }
 
+output "rest_api_id" {
+  description = "ID of the Rest API Gateway."
+  value       = aws_api_gateway_rest_api.api_gateway_rest.id
+}
+
 # -------------------------
 # outputs API Authorizer
 # -------------------------
