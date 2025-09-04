@@ -131,3 +131,12 @@ variable "identity_source" {
   type        = string
   default     = "string"
 }
+
+# -------------------------
+# API Policy Variables
+# -------------------------
+variable "api_policy" {
+  description = "The policy document for the API Gateway"
+  type        = string
+  default     = ""
+}

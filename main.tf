@@ -67,7 +67,7 @@ resource "aws_vpc_endpoint" "vpc_endpoint" {
 # VPC Endpoint
 # -------------------------
 resource "aws_vpc_endpoint_policy" "vpc_endpoint_policy" {
-  count           = var.create_vpc_endpoint ? 1 : 0
+  count = var.create_vpc_endpoint ? 1 : 0
 
   vpc_endpoint_id = element(aws_vpc_endpoint.vpc_endpoint.*.id, 0)
   policy          = file("${path.module}/policies/vpc-endpoint_policy.json")
@@ -94,7 +94,7 @@ resource "aws_api_gateway_rest_api" "api_gateway_rest" {
 # -------------------------
 resource "aws_api_gateway_rest_api_policy" "api_policy" {
   rest_api_id = aws_api_gateway_rest_api.api_gateway_rest.id
-  policy      = local.api_policy
+  policy      = var.api_policy
 }
 
 # -------------------------
