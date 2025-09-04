@@ -94,7 +94,7 @@ resource "aws_api_gateway_rest_api" "api_gateway_rest" {
 # -------------------------
 resource "aws_api_gateway_rest_api_policy" "api_policy" {
   rest_api_id = aws_api_gateway_rest_api.api_gateway_rest.id
-  policy      = var.api_policy
+  policy      = var.api_policy != "" ? var.api_policy : local.api_policy
 }
 
 # -------------------------
