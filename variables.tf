@@ -78,8 +78,14 @@ variable "sg_listener_protocol" {
 }
 
 # --- VPC Endpoint Variables ---
+variable "create_vpc_endpoint" {
+  description = "Flag to create the VPC endpoint"
+  type        = bool
+  default     = true
+}
+
 variable "vpc_endpoint_dns_enable" {
-  description = "Whether to create a listener rule"
+  description = "Whether to create a DNS entry for the VPC endpoint"
   type        = bool
   default     = true
 }

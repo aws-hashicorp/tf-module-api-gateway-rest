@@ -52,6 +52,7 @@ resource "aws_security_group" "sg_vpc_endpoint" {
 # VPC Endpoint
 # -------------------------
 resource "aws_vpc_endpoint" "vpc_endpoint" {
+  count               = var.create_vpc_endpoint ? 1 : 0
   vpc_id              = var.vpc_id
   service_name        = "com.amazonaws.${var.aws_region}.execute-api"
   vpc_endpoint_type   = "Interface"
@@ -66,7 +67,8 @@ resource "aws_vpc_endpoint" "vpc_endpoint" {
 # VPC Endpoint
 # -------------------------
 resource "aws_vpc_endpoint_policy" "vpc_endpoint_policy" {
-  vpc_endpoint_id = aws_vpc_endpoint.vpc_endpoint.id
+  count           = var.create_vpc_endpoint ? 1 : 0
+  vpc_endpoint_id = one(aws_vpc_endpoint.vpc_endpoint.id)
   policy          = file("${path.module}/policies/vpc-endpoint_policy.json")
 }
 
