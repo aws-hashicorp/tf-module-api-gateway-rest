@@ -13,5 +13,5 @@ output "rest_api_id" {
 # -------------------------
 output "authorizer_id" {
   description = "ID of the API Gateway Rest authorizer."
-  value       = aws_api_gateway_authorizer.api_authorizer[0].id
+  value       = one(aws_api_gateway_authorizer.api_authorizer[*].id)
 }
