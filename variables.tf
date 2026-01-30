@@ -140,3 +140,13 @@ variable "api_policy" {
   type        = string
   default     = ""
 }
+
+# -------------------------
+# API Key Variables
+# -------------------------
+variable "create_api_key" {
+  description = "Flag to create the authorizer"
+  type        = bool
+  default     = false
+}
+
